@@ -17,6 +17,14 @@ $( document ).ready(function() {
       }],
 			order: [[ 2, "asc" ]],
     });
+
+		table_ranking = $('#ranking').DataTable({
+      destroy: true,
+      ajax:"/rsp/top_leaders?format=datatables",
+      serverSide:true,
+      searching: false,
+			order: [[ 1, "asc" ]],
+    });
 });
 
 function load_table_match_detail(id){

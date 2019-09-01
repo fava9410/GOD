@@ -1,6 +1,9 @@
 from django.shortcuts import render, HttpResponseRedirect
+from django.http import JsonResponse
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Count
+from django.core import serializers
 from rest_framework import generics
 from .components import *
 from .models import Match, Match_Detail
@@ -68,3 +71,8 @@ class MatchDetail(generics.ListAPIView):
 
 def matches_history(request):
     return render(request,"RSP/matches.html")
+
+def top_leaders(request):
+    qs = Match.objects.values('winner').annotate(victories=Count('winner')).order_by('-victories')
+    data = {'data':list(qs)}
+    return JsonResponse(data, safe=False)

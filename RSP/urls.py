@@ -8,4 +8,5 @@ urlpatterns = [
     path('list_all_matches', views.MatchesList.as_view(), name='list_all_matches'),
     path('matches_history',views.matches_history, name='matches_history'),
     path('match_detail/<int:match_id>/', views.MatchDetail.as_view()),
+    path('top_leaders', views.top_leaders, name='top_leaders'),
 ]
