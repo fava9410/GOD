@@ -1,0 +1,4 @@
+*.pyc
+assets
+media
+*.sqlite3
