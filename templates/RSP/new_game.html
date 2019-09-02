@@ -4,15 +4,25 @@
 	    <h2>Enter player's names</h2>
 	    <form method="POST" enctype="multipart/form-data">
 	      {% csrf_token %}
+				<br>
+				<label>The name must contain only letters and numbers, max 50 characters</label>
+				<br>
 	      <div>
-	        <input type="text" name="player1">Player 1</input>
+	        <input type="text" name="player1" pattern="[A-Za-z0-9]{1,50}"
+					style="text-transform:uppercase" autocomplete="off" required> Player 1</input>
 	      </div>
 	      <div>
-	        <input type="text" name="player2">Player 2</input>
+	        <input type="text" name="player2" pattern="[A-Za-z0-9]{1,50}"
+					style="text-transform:uppercase" autocomplete="off" required> Player 2</input>
 	      </div>
 	      <div class="mt-10">
 	        <input type="submit" value="Start">
 	      </div>
 	    </form>
+			{% if error %}
+				{%for e in error %}
+					<label style="color:red">{{e}}</label>
+				{% endfor %}
+			{% endif %}
 		</div>
   {% endblock %}
