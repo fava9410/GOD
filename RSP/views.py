@@ -30,8 +30,7 @@ def choose_move(request):
 
     if request.method == "POST":
         game = request.session.get('game')
-        #p1 = Player(game["player1"]["name"],game["player1"]["score"])
-        #p2 = Player(game["player2"]["name"],game["player2"]["score"])
+
         p1 = Player(**game['player1'])
         p2 = Player(**game['player2'])
 

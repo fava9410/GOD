@@ -10,7 +10,6 @@ class AuditLog(models.Model):
 class Match(AuditLog):
     winner = models.CharField(max_length = 50,  null = True, blank = True)
     number_of_rounds = models.IntegerField(null = False, blank = False)
-    final_score = models.CharField(max_length = 10, null = True, blank = True)
 
 class Match_Detail(AuditLog):
     match = models.ForeignKey(Match, on_delete=models.CASCADE, null = False, blank = False, related_name = 'match_id')
