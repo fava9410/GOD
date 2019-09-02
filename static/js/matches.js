@@ -28,8 +28,6 @@ $( document ).ready(function() {
 });
 
 function load_table_match_detail(id){
-	console.log("entre")
-	console.log(id)
 	table_match_detail = $('#match_detail').DataTable({
 		destroy: true,
 		ajax:"/rsp/match_detail/"+id+"/?format=datatables",
